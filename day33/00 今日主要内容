@@ -1,0 +1,28 @@
+1、线程的其他方法：
+    T = Threadcurrent_thread()  当前线程对象
+    T.getname()  # 当前进程名称
+    T.ident  # 当前进程号
+
+    Threading.active_count() 当前执行的线程个数
+
+
+2、线程队列
+    import queue
+
+    先进先出 queue.Queue()
+    先进后出 queue.LifoQueue()
+    优先级队列 queue.priorityQueue()
+
+    put的数据是个元组，元祖的第一个数据表示优先级的数据，数字越小，表示优先级越高
+
+3、线程池
+    from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor  # 进程池与线程池创建方法
+    向线程池中提交任务的方法
+    1、map(f1, 可迭代)
+    2、submit(f1, 1).add_done_callback(callback_function)
+
+    shutdown() = close + join
+
+    res.Result() 取结果 类似于进程的get方法
+
+4、协程
