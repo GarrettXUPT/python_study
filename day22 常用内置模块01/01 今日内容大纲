@@ -1,0 +1,41 @@
+今日主要内容：
+    1、了解模块是什么
+        每天写的py文件都是模块，还有一些我们一直在使用的模块
+        buildins：内置模块，print，input等内置函数都是来自于该模块
+        random：产生随机数，主要是和随机相关的内容
+            random：产生随机的0-1的小数
+            uniform(a, b)：产生a-b之间的一个小数
+            randint(a ,b)：产生a-b之间的随机整数
+            choice(list) ：从列表中选择一个
+            sample(list, a):从列表中选择a个
+            shuffle：打乱列表顺序
+
+    2、collections
+        1、counter 计数器
+        2、defaultdict 默认值字典
+        3、Ordereddict 有序字典
+        数据结构：队列、栈（重点）：
+            栈：先进后出(FILO)
+                stack
+            队列：先进先出
+                Queue(FIFO)
+
+    3、time模块
+        结构化时间 gmtime() lacaltime()
+        时间戳 time.time()  time.mktime()——数字形式的时间
+        格式化时间 time.strftime() time.strptime()——格式 "%Y-%m-%d %H:%M:%S"
+        时间的转化：time.localtime()
+            任何的时间转化必须通过结构化时间
+        数字——>格式化时间
+            struct_time = time.localtime(num)
+            time.strftime("%Y-%m-%d %H:%M:%S", struct_time)
+
+        格式化时间——>数字
+            strut_time = time.strptime(str, "%Y-%m-%d %H:%M:%S")
+            time.mktime(struct_time)
+
+    4、functools
+        wraps 给装饰器的inner改名字用的
+        偏函数(partial) 归纳，合并
+        reduce 将函数的参数固定,进行归纳
+        map ——> reduce
