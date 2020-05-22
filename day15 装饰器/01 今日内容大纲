@@ -1,0 +1,50 @@
+今日主要内容：
+    关于函数的装饰器，后面还会有关于类的装饰器
+        1、装饰器（重点，难点）
+            开闭原则：对功能的扩展开放，对代码的修改是封闭的
+            通用装饰器写法：
+                # python 里面的动态代理
+                # 装饰器存在的意义：在不破坏原有函数和原有函数调用的基础上，给函数添加新的功能
+                def warpper(fn):  # 此时fn是目标函数
+                    def inner(*args,**kwargs): # 为了目标函数传参
+                        '''在执行目标函数之前需要添加的代码'''
+                        ret = fn(*args,**kwargs) # 调用目标函数,ret 是目标函数的返回值
+                        '''在执行目标函数之后需要添加的代码'''
+                        return ret # 将目标函数返回值返回，保证函数正常的结束
+                    return inner
+
+                @warpper # fn = warpper(target_func) # 此时fn就是target_func
+                def target_func():
+                    pass
+
+                # target_func = warpper(target_func) # 此时fn就是target_func
+                target_func() # 此时执行的是inner
+        2、同一个函数被装饰器装饰
+            # 就近原则
+            @wrapper1
+            @wrapper2
+            @wrapper3
+            # wrapper3 最先被装饰，wrapper2装饰的是wrapper3装饰以后的函数，以此类推
+            def func():
+                print("我是可怜的func")
+
+            func()
+        3、带参数的装饰器
+            def wrapper_out(flag): # 装饰器本身的参数
+                 def wrapper(fn):
+                    def inner(*args,**kwargs):
+                        if flag == True:
+                            print("打探市场")
+                            ret = fn(*args,**kwargs)
+                            print("你骗我，恨你")
+                            return ret
+                        else:
+                            ret = fn(*args,**kwargs)
+                            return ret
+                    return inner
+                 return wrapper
+
+            @wrapper_out(False) # 执行流程：先执行wrapper_out 返回一个装饰器 再与@做拼接 @装饰器
+            def yue():
+                print("你好啊")
+            yue() 
