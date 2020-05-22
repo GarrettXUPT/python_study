@@ -1,0 +1,22 @@
+2019-08-04 12:23:53,132 - 百度贴吧 - ERROR - 05 日志: 我才不去呢，太远了
+2019-08-04 12:31:53,610 - 百度贴吧 - ERROR - 05 日志: 我才不去呢，太远了
+2019-08-04 12:35:44,810 - 百度贴吧 - ERROR - 05 日志: 我才不去呢，太远了
+2019-08-04 12:35:44,810 - 百度贴吧 - ERROR - 05 日志: 走混了....
+2019-08-04 12:35:44,810 - 百度贴吧 - ERROR - 05 日志: Traceback (most recent call last):
+  File "F:/python_study/day20 约束 异常处理 日志处理/05 日志.py", line 58, in <module>
+    z.nan(p2)
+  File "F:/python_study/day20 约束 异常处理 日志处理/05 日志.py", line 43, in nan
+    raise Gender_Exception("我这里是男澡堂")
+Gender_Exception: 我这里是男澡堂
+
+2019-08-04 12:38:07,929 - 百度贴吧 - ERROR - 05 日志: 我才不去呢，太远了
+2019-08-04 12:38:07,929 - 百度贴吧 - INFO - 05 日志: 创建了一个人，这个人的名字是Garrett,这个人的性别是男
+2019-08-04 12:38:07,929 - 百度贴吧 - INFO - 05 日志: 创建了一个人，这个人的名字是Walker,这个人的性别是女
+2019-08-04 12:38:07,929 - 百度贴吧 - ERROR - 05 日志: 走混了....
+2019-08-04 12:38:07,938 - 百度贴吧 - ERROR - 05 日志: Traceback (most recent call last):
+  File "F:/python_study/day20 约束 异常处理 日志处理/05 日志.py", line 60, in <module>
+    z.nan(p2)
+  File "F:/python_study/day20 约束 异常处理 日志处理/05 日志.py", line 45, in nan
+    raise Gender_Exception("我这里是男澡堂")
+Gender_Exception: 我这里是男澡堂
+

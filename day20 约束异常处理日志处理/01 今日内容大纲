@@ -1,0 +1,44 @@
+今日主要内容：
+    1、类的约束
+        1、写一个父类，父类中的某一个方法，要抛出一个异常 NotImplementError
+        2.抽象类和抽象方法
+            from abc import ABCMeta, abstractmethod
+            class Base(metaclass = ABCMeta):
+                @abstractmethod
+                def fangfa(self): pass # 该方法就变为抽象方法
+
+    2、异常处理  try except rasise
+        try:
+            code
+        except 异常类 as e:
+            出了错，如何处理
+        except 异常类：
+            出现该错，应该如何处理
+        else:
+            当程序不出错时，执行
+        finally：
+            不管出不出错，都要进行运行
+
+        raise 异常类("信息")
+
+        如何自己定义异常：
+            class 类名_Exception(Exception):
+                pass
+
+        堆栈：
+        import traceback
+         f = traceback.format_exc()   # 查看堆栈信息
+         print(f)  # 打印堆栈信息
+
+    3、MD5加密
+        # MD5 用来加密，并且是不可逆算法，但是可以通过撞库进行破解
+        import hashlib
+
+        # # 创造一个MD5对象
+        # obj = hashlib.md5(b"dyudgyuagdygdtyefydeuagdytfwydfwydauyugdyudtyf")  # 加盐，在程序中，盐是固定的
+        # obj.update("123456".encode("utf-8"))  # 将要加密的内容，传递给MD5
+        # print(obj.hexdigest())  # 拿到秘文
+        # # 加盐前（可通过撞库进行破解）：534b44a19bf18d20b71ecc4eb77c572f
+        # # 加盐后（不可破解）：bc55dad932039f04408cc8ecd64c76c3
+
+    4、日志处理（主要是在应用上）
