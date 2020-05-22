@@ -1,0 +1,101 @@
+面向对象总结：
+    1、类：对某一事物的的描述，对属性方法的归类
+        class 类名：
+            var = 123  # 类变量
+            def __init(self, 属性):
+                # 实例变量
+                self.属性 = 属性
+
+            # 实例方法，主要是给对象用的
+            def method(self):
+                pass
+
+            @staticmethod  # 表示静态方法，该类方法，可以没有参数,一定是函数，且与外界定义的函数相同，即任何人都可以调用
+            def stamethod():
+                pass
+
+            @classmethod  # 表示类方法，一定是方法
+            def method(cls):
+                pass
+
+            @property  # 将方法变为属性
+            def age(self):
+                return 10
+
+            表示私有方法
+            def __private__(self):
+                pass
+
+
+        类可以互相继承：
+            class Base:  父类：超类，基类
+                pass
+
+
+            class Foo(Base1， Base2):  派生类
+                pass
+
+            子类在执行时候的顺序为：Foo -> Base1 -> Base2
+
+        类与类之间的关系：
+            1、依赖关系：在执行某一方法的时候，把另外一个类对象作为参数传递进来
+            2、关联关系：在一个对象中绑定另外一个类的对象，若两个对象之间是紧密联系的，此时，称之为耦合性强
+
+            约束：
+                1、写一个父类，然后在父类中写出要被约束的方法，在该方法中写raise NotImplementedError（）
+                2、写一个抽象类，子类重写抽象类中的抽象方法
+                from abc import ABCMeta, abstractmethod
+                class method(Metaclass = ABCMeta):
+                    @abstractmethod
+                    def 抽象方法(self):
+                        pass
+            反射：
+                getattr()
+                    getattr(对象，str)    从对象中获取str的值
+                hasattr()
+                    hasattr(对象，str)    判断对象中是否含有str属性
+                delattr()
+                    delattr(对象，str)     将str属性从对象中删除
+                setattr()
+                    setattr(对象，str，value) 将对象中的str属性，设置为value
+
+    2、对象
+        什么都是对象，在编程的世界里，对象是由类创建的。
+        类名() ——> 创建对象，实例化，此时会默认的调用两个方法
+            __new__() 开辟内存，创建一个对象
+            __init__() 初始化对象
+            对象可以执行的方法，都写在类中，对象的属性一般写在__init__()中
+            对象最主要的意义就是对数据进行封装，
+
+        class Stu:
+            def __init__(self, name, age, num, gender):
+                self.name = name
+                self.age = age
+                self.num = num
+                self.gender = gender
+
+        s = Stu("宝宝", 16, 2015, "男")
+
+今日主要内容：
+    1、了解python2 和 python3类的区别
+        python2 在2.4之前使用的是经典类，2.4之后使用的是新式类
+            class Foo:  # 经典类
+                pass
+
+            class Foo(obj): # 存在继承关系，即为新式类
+                pass
+        python2：需要手动继承object
+        python3：所有的类都是object的子类
+        MRO：method resolution order 方法的查找顺序
+    2、经典类的MRO 树形结构的深度优先递归遍历，树形结构的遍历，不管是新类MRO还是经典MRO都是使用深度优先递归遍历的
+
+    3、新式类的MRO   C3算法（重点，难点）
+        1、拆分 L(H) = H + L(H的父类）+ 父类父类
+        2、合并 用每一项的头与其他项的身体进行比较
+                如果第一项的头没有在其他身体里出现过，则第一项的头被算出；
+                如果第一项的头在其他的身体里出现，那么开始下一项的头......下一项的头被计算完成时，则返回下一项的头继续运行
+                若出现BA + AB 那么此时会报错
+
+    4、supper() 找MRO顺序的下一个
+
+    5、一道面试题
