@@ -1,0 +1,73 @@
+1、面向对象的三个特征
+    封装
+        对属性的封装
+            class Foo:
+                def __init__(self,name,num,age):
+                    self.name = name
+                    self.num = num
+                    self.age = age
+            f = Foo("宝宝", "20152009", 18)  # 将属性放置到一个对象中，称之为封装
+        对方法的封装
+            class Foo:
+
+                def chi(self):
+                    print("我会吃")
+
+                def he(self):
+                    print("我会喝")
+
+            f = Foo()
+            f.chi() # 对方法的封装
+            f.he()
+    继承
+        class Base:
+            def f1(self):
+                pass
+
+        class Foo(Base):
+            def f1(self):  # 若在子类中出现与父类中完全一样的方法时，该方法是对父类的覆盖，对该方法的重写
+                pass
+
+        意义：为了扩展功能
+
+    多态
+        python追求的是鸭子模型，会嘎嘎叫的就是鸭子
+
+2、列举面向对象中的所有成员
+    1、变量：
+        实例变量：对象的变量
+        类变量：类的变量
+    2、方法
+        实例方法：对象.方法()  形参第一个是self
+        类方法：@classmethod    形参第一个是cls
+        静态方法：@staticmethod 没要求，与写在类外面的函数完全相同
+    3、属性（@property）
+        把方法变成属性，该类属性一般为属性不能直接存储，需要计算之后得出，比如：年龄
+    4、私有
+        __开头的内容，即为私有内容  私有内容只能在自己的类里面使用，其他地方不可调用
+    5、特殊成员
+
+3、面向对象表示学生、班级、老师的关系
+    class Stu:
+        def __init__(self, name, num, cla = None):
+            self.name = name
+            self.num = num
+            self.cla = cla
+
+
+    class cla:
+        def __init__(self, name):
+            self.name = name
+            self.teach_list = []
+            self.student_list = []
+
+
+    class tec:
+        def __init__(self, name):
+            self.name = name
+            self.cla_list = []
+
+    s1 = stu("宝宝", 1)
+    s2 = stu("你好", 2)
+    s3 = stu("干嘛", 3)
+    s4 = stu("太白", 4)

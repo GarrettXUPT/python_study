@@ -1,0 +1,26 @@
+今日主要内容：
+    1、isinstance type issubclass
+        isinstance：判断你给的对象是否是xxx类型的（向上判断）
+        type:返回目标的数据类型
+        issubclass(xx,xxx)：判断xx是否是xxx的子类
+    2、如何区分方法和函数（使用代码的形式去区分）
+        写在类里面的是方法，写在类外面的是函数
+        在类中：
+            实例方法：
+                类名.方法（） 函数
+                对象.方法（） 方法
+            类方法：
+                都是方法
+            静态方法：
+                对象是由类创建的，type创建类
+         # 野路子：打印的结果中包含了function即为函数，打印的结果中带有method即为方法
+         # 正规看法：from types import FunctionType, MethodType ,再使用isinstance进行判断
+    3、反射（一共四个函数）
+        getattr()
+            getattr(对象，str)    从对象中获取str的值
+        hasattr()
+            hasattr(对象，str)    判断对象中是否含有str属性
+        delattr()
+            delattr(对象，str)     将str属性从对象中删除
+        setattr()
+            setattr(对象，str，value) 将对象中的str属性，设置为value
